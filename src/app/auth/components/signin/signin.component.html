@@ -1,1 +1,44 @@
-<p>signin works!</p>
+<div class="container">
+    <h1>Ecommerce</h1>
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>Inicio de sesión</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <form [formGroup]="form">
+                    <div class="form-container">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Correo</mat-label>
+                            <input matInput placeholder="Escriba aquí" name="email" formControlName="email" required  autofocus  >
+                            <mat-icon matSuffix>account_circle</mat-icon>
+                            <mat-hint *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)" >
+                                <span *ngIf="form.controls['email'].errors.required" class="msg-invalid" >
+                                  Campo requerido.
+                                </span>
+                                <span *ngIf="form.controls['email'].errors.pattern" class="msg-invalid" >
+                                  Formato de correo invalido.
+                                </span>
+                            </mat-hint>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Contraseña</mat-label>
+                            <input matInput placeholder="Escriba aquí" name="password" 
+                            formControlName="password" 
+                            required  >
+                            <mat-icon matSuffix>lock</mat-icon>
+                            <mat-hint *ngIf="form.controls['password'].invalid && (form.controls['password'].dirty || form.controls['password'].touched)" >
+                                <span *ngIf="form.controls['password'].errors.required" class="msg-invalid" >
+                                  Campo requerido.
+                                </span>
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="">
+                        <button mat-raised-button color="primary" class="btn" [disabled]="form.invalid" >Entrar</button>
+                    </div>
+                </form>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
