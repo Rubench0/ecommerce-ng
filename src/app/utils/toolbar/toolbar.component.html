@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Ecommerce</span>
+      <span class="spacer"></span>
+      <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon class="icon" aria-hidden="false" aria-label="profile">account_box</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="onSignOut()" >Cerrar sesión</button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>

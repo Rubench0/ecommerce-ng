@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Orden código #{{ data.id }}</h1>
+<div mat-dialog-content>
+   <div class="items-col" >
+        <div class="items" *ngFor="let item of data.inventories" >
+            <div class="items-content">
+                <span class="items-title" >Producto</span>
+                <div>
+                    <span>Nombre: {{ item.products.name }}</span>
+                    <span>Cantidad: {{ item.pivot.amount }}</span>
+                </div>
+            </div>
+            <div class="items-content">
+                <span class="items-title" >Inventario</span>
+                <div>
+                    <span>Stock: {{ item.stock }}</span>
+                    <div class="items-row-items" >
+                        <span  [ngStyle]="{'color': item.total < 30 ? 'red': 'black', 'font-weight': item.total < 30 ? 'bold': 'normal'}" >Cantidad: {{ item.total }}</span>
+                        <div *ngIf="item.total < 30" >
+                            <button mat-button  (click)="getProviders(item.id)" >Proveedores</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions>
+</div>
